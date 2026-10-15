@@ -67,3 +67,16 @@ docker-compose.override.yml
 
 # Local LLM Wiki vault
 .llm-wiki
+
+# Dashboard development state
+.build-tmp/
+.tools/
+.dashboard-agent-task.txt
+.dashboard-runtime/
+!docs/dashboard-api.md
+!docs/dashboard.md
+!docs/design-qa.md
+
+/dashboard/mobile-qa.html
+
+!docs/dashboard-review.md

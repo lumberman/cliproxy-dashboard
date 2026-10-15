@@ -103,3 +103,14 @@ No test sends model requests to a paid provider.
 The UI review uses UI UX Pro Max with the supplied screenshot as the visual target.
 The interface uses semantic theme tokens, provider icons, keyboard focus states, and responsive layouts.
 See `design-qa.md` for visual and interaction evidence.
+
+## Fork CI policy
+
+The fork keeps the dashboard check, backend build, and translator path check.
+The original project has two repository-specific PR automations.
+One retargets PRs to `dev`; the other rejects `AGENTS.md` changes.
+Those automations are disabled in this fork.
+The workflow conditions also limit those policies to the original repository.
+
+The local browser preview can use the built file without Node.js or Bun.
+The isolated launcher needs Python 3 and a CLIProxyAPI v8 binary.

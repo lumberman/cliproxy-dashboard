@@ -1,0 +1,35 @@
+name: Dashboard
+
+on:
+  pull_request:
+    paths: ['dashboard/**', 'scripts/dashboard-*.sh', '.github/workflows/dashboard.yml']
+  push:
+    branches: ['feat/operator-dashboard', 'main']
+    paths: ['dashboard/**', 'scripts/dashboard-*.sh', '.github/workflows/dashboard.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.3.14'
+      - name: Install dependencies
+        working-directory: dashboard
+        run: bun install --frozen-lockfile
+      - name: Test, lint, and build
+        working-directory: dashboard
+        run: bun run verify
+      - name: Test dashboard installation
+        run: bash scripts/dashboard-test.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: management-dashboard
+          path: dashboard/dist/index.html

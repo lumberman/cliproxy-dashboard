@@ -1,3 +1,12 @@
+# CLI Proxy Console fork
+
+This fork includes a quota dashboard and the complete v8 management frontend in `dashboard/`.
+See [dashboard setup](docs/dashboard.md) and [API coverage](docs/dashboard-api.md).
+
+The original CLIProxyAPI documentation follows.
+
+---
+
 # CLI Proxy API
 
 English | [中文](README_CN.md) | [日本語](README_JA.md)
